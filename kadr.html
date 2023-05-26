@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отдел кадров</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="kadr.css">
+    <link rel="icon" href="img/colba.png">
+</head>
+<body>
+    <header>
+        <h1>Лаборатория</h1>
+        <p>Отдел кадров</p>
+    </header>
+    <nav> 
+        <a href="index.html">Авторизация</a>
+        <a href="prof.html">Профком</a>
+        <a href="#" id="here">Отдел кадров</a>
+        <a href="admin.html">Модератор</a>
+    </nav>
+    <section>  
+        <div class="main">
+            <div class="form-container">
+                <h2>Регистрация нового сотрудника</h2>
+                <form>
+                  <label for="name">ФИО:</label>
+                  <input type="text" id="name" name="name" placeholder="Зубенко Михаил Петрович" required>
+                <!-- фио пол возраст семейное положение наличие детей должность ученая степень -->
+                  <div class="gender">
+                    <label for="male">Male</label>
+                    <input type="radio" id="male" name="gender" value="male" checked>
+
+                    <label for="female">Female</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                  </div>
+
+                  <label for="age">Возраст:</label>
+                  <input type="number" id="age" name="age" placeholder="18" required>
+
+                  <label for="status">Семейное положение:</label>
+                  <select name="status" id="status" required>
+                    <option value="married">Женат/Замужем</option>
+                    <option value="single">Холост(a)</option>
+                    <option value="HARD">Всё сложно</option>
+                  </select>
+
+                  <label for="children">Наличие детей:</label>
+                  <input type="number" id="children" name="children" placeholder="0" required>
+
+                  <label for="job">Должность:</label>
+                  <input type="text" id="job" name="job" placeholder="Вор в законе" required>
+
+                  <label for="degree">Ученая степень:</label>
+                  <input type="text" id="degree" name="degree" placeholder="мафиозник" required>
+
+                  <button type="submit">Далее</button>
+                </form>
+                <script>
+                    const form = document.querySelector('form');
+                    const button = form.querySelector('button');
+                    
+                    function showError() {
+                      const message = 'Введите значение';
+                      alert(message);
+                    }
+                    
+                    function handleSubmit(event) {
+                      event.preventDefault();
+                      if (event.submitter === button && !form.checkValidity()) {
+                        showError();
+                      }
+                      else {
+                        alert("Регистрация прошла успешно!");
+                      }
+                    }
+                    
+                    form.addEventListener('submit', handleSubmit);
+                </script>
+              </div>     
+        </div>
+    </section>
+    <footer>
+        <p>&copy Viktor Petrov</p>
+    </footer>
+
+</body>
+</html>
